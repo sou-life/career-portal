@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Job Application Form</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'job.css' %}">
+    <style>
+        body {
+            background: url("{% static 'images/3dnZIe.jpg' %}") fixed no-repeat center center;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: aliceblue;
+        }
+        .navbar {
+            background-color:aliceblue;
+        }
+        .title-text {
+            font-weight: bold;
+            font-size: 24px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: black;
+        }
+        h1 {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 28px;
+        }
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50%;
+            
+        }
+        .form-container .form-wrapper {
+            width: 50%;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .cover-letter {
+            width: 100%;
+        }
+        input[type="file"] {
+            padding: 5px;
+        }
+        input[type="submit"] {
+            background-color:black;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color:#ccc;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default"> 
+        <div class="container-fluid"> 
+            <a  class="navbar-brand"  href="/home/">
+                <span class="title-text">SHINEDOOR</span>
+            </a>              
+        </div>
+    </nav> 
+
+    <h1>Job Application Form</h1>
+
+    <div class="form-container">
+        <div class="form-wrapper">
+            <form name="applyform" action="/applyform/" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="resume">Resume/CV:</label>
+                    <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required class="form-control-file">
+                </div>
+                <div class="form-group">
+                    <label for="cover-letter">Cover Letter:</label>
+                    <textarea id="cover-letter" name="cover-letter" required class="form-control cover-letter"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</body>
+</html>
