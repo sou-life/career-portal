@@ -1,0 +1,16 @@
+# Ignore Python virtual environment
+jobsite/
+
+# Bytecode
+__pycache__/
+*.py[cod]
+
+# Django static files
+staticfiles/
+*.sqlite3
+
+# VS Code settings (optional)
+.vscode/
+
+# Environment variables
+.env
